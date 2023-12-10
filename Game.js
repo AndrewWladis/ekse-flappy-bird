@@ -4,7 +4,7 @@ import Bird from './components/Bird';
 import Obstacles from './components/Obstacles'
 import { useEffect, useState } from 'react';
 
-export default function Game({setScreen, setGameScore}) {
+export default function Game({setScreen, setGameScore, setHighScores}) {
   const screenWidth = Dimensions.get("screen").width
   const screenHeight = Dimensions.get("screen").height
 
@@ -29,8 +29,8 @@ export default function Game({setScreen, setGameScore}) {
     clearInterval(obstaclesLeftTimerId)
     clearInterval(obstaclesLeftTimerIdTwo)
     setIsGameOver(true);
-    setScreen('Over')
     setGameScore(score)
+    setScreen('GameOver')
   }
 
   function jump() {
@@ -83,6 +83,34 @@ export default function Game({setScreen, setGameScore}) {
       setScore(score => score + 1)
     }
   }, [obstaclesLeftTwo])
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch('https://correct-boxd-backend.onrender.com/leaderboard');
+        
+        if (!response.ok) {
+          throw new Error('Network request failed');
+        }
+    
+        const result = await response.json();
+    
+        // Filter out items without a name
+        const filteredHighScores = result.filter(item => item.name);
+    
+        // Sort the filtered high scores by score in descending order
+        const sortedHighScores = filteredHighScores.sort((a, b) => b.score - a.score);
+    
+        // Set the state with the filtered and sorted high scores
+        setHighScores(sortedHighScores);
+      } catch (error) {
+        console.error('Error fetching data:', error.message);
+      }
+    };
+    
+
+  fetchData();
+}, [])
 
   //check for collisions
   useEffect(() => {

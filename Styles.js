@@ -32,6 +32,34 @@ const styles = StyleSheet.create({
     height: 120,
     width: 100
   },
+  item: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    padding: 16,
+    borderBottomWidth: 1,
+    borderBottomColor: '#ccc',
+    width: '100%',
+  },
+  highScoreListScore: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    color: 'white'
+  },
+  leaderboardHeader: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 16,
+    borderBottomWidth: 1,
+    borderBottomColor: '#ccc',
+    width: '100%',
+  },
+  listContainer: {
+    height: 350,
+    margin: 0,
+    padding: 0
+  },
   marginVertical: {
     marginVertical: 50
   },
@@ -75,6 +103,13 @@ const styles = StyleSheet.create({
     fontSize: 80,
     fontWeight: '900',
     textAlign: 'center'
+  },
+  username: {
+    fontSize: 18,
+  },
+  usernameList: {
+    fontSize: 18,
+    color: "white"
   }
 });
 
