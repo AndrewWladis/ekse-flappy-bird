@@ -42,7 +42,7 @@ export default function GameOverScreen({ setScreen, gameScore, highScoreData }) 
         setHighScore()
         unsubscribe();
 
-        if (!hasDataBeenSent && isConnected && (highScoreData.length < 5 || highScoreData[4].score < finalScore)) {
+        if (!hasDataBeenSent && isConnected && highScoreData[4].score < finalScore) {
             showAlertWithInput()
         }
     }, [])
