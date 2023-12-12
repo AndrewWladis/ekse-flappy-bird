@@ -18,12 +18,12 @@ export default function GameOverScreen({ setScreen, gameScore, highScoreData }) 
 
     const showAlertWithInput = () => {
         Alert.prompt(
-          'Enter your name for the leaderboard.',
-          'Enter your name',
-          (text) => setYourName(text),
-          'plain-text',
+            'Enter your name for the leaderboard.',
+            'Enter your name',
+            (text) => setYourName(text),
+            'plain-text',
         );
-      };
+    };
 
     useEffect(() => {
         async function setHighScore() {
@@ -42,14 +42,16 @@ export default function GameOverScreen({ setScreen, gameScore, highScoreData }) 
         setHighScore()
         unsubscribe();
 
-        if (!hasDataBeenSent && isConnected && highScoreData[4].score < finalScore) {
-            showAlertWithInput()
+        if (highScoreData !== null && highScoreData !== undefined) {
+            if (!hasDataBeenSent && isConnected && highScoreData[4].score < finalScore) {
+                showAlertWithInput()
+            }
         }
     }, [])
 
     useEffect(() => {
         if (yourName !== null && yourName !== "") {
-            
+
             const addToLeaderboard = async () => {
                 try {
                     const response = await fetch('https://correct-boxd-backend.onrender.com/add-to-leaderboard', {
@@ -89,7 +91,7 @@ export default function GameOverScreen({ setScreen, gameScore, highScoreData }) 
                 <Text style={styles.gameOverTitle}>GAME OVER</Text>
                 <Text style={styles.gameOverScoreTitle}>YOU SCORED <Text style={styles.score}>{finalScore}</Text></Text>
 
-                {(isConnected && (highScoreData.length !== 0)) ?
+                {(isConnected && highScoreData !== null && highScoreData !== undefined) ?
                     (
                         <View style={styles.listContainer}>
                             <FlatList
