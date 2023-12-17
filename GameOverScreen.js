@@ -42,9 +42,12 @@ export default function GameOverScreen({ setScreen, gameScore, highScoreData }) 
         setHighScore()
         unsubscribe();
 
-        if (highScoreData !== null && highScoreData !== undefined) {
-            if (!hasDataBeenSent && isConnected && highScoreData[4].score < finalScore) {
-                showAlertWithInput()
+        if (highScoreData !== null && highScoreData !== undefined && highScoreData.length !== 0) {
+            if (!hasDataBeenSent && isConnected) {
+                console.log(highScoreData)
+                if (highScoreData[4].score < finalScore) {
+                    showAlertWithInput()
+                }
             }
         }
     }, [])
@@ -91,7 +94,7 @@ export default function GameOverScreen({ setScreen, gameScore, highScoreData }) 
                 <Text style={styles.gameOverTitle}>GAME OVER</Text>
                 <Text style={styles.gameOverScoreTitle}>YOU SCORED <Text style={styles.score}>{finalScore}</Text></Text>
 
-                {(isConnected && highScoreData !== null && highScoreData !== undefined) ?
+                {(isConnected && highScoreData !== null && highScoreData !== undefined && highScoreData.length !== 0) ?
                     (
                         <View style={styles.listContainer}>
                             <FlatList
