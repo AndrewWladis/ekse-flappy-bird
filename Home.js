@@ -3,10 +3,11 @@ import React, { useState, useEffect } from 'react'
 import styles from './Styles'
 import * as SecureStore from 'expo-secure-store';
 
+
 export default function Home({ setScreen }) {
     const [highScore, setHighScore] = useState(null)
     const [character, setCharacter] = useState('morbius')
-
+    
     useEffect(() => {
         (async () => {
             const scoreStorage = await SecureStore.getItemAsync('ekseHighScore');

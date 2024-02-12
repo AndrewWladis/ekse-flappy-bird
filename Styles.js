@@ -16,6 +16,11 @@ const styles = StyleSheet.create({
   fullScreen: {
     flex: 1,
   },
+  gameContainer: {
+    flex: 1,
+    flexDirection: 'column',
+    width: '100%',
+  },
   gameOverScoreTitle: {
     color: 'white',
     fontSize: 35,
@@ -97,6 +102,19 @@ const styles = StyleSheet.create({
     color: 'white',
     fontSize: 50,
     fontWeight: '900'
+  },
+  scoreHeader: {
+    width: '100%',
+    height: 200,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: 'black'
+  },
+  scoreText: {
+    color: 'white',
+    fontSize: 50, 
+    textAlign: 'center'
   },
   title: {
     color: 'white',
