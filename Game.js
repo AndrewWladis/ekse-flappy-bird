@@ -7,7 +7,7 @@ import { useFonts } from 'expo-font';
 
 export default function Game({ setScreen, setGameScore, setHighScores }) {
   const screenWidth = Dimensions.get("screen").width
-  const screenHeight = Dimensions.get("screen").height
+  const screenHeight = (Dimensions.get("screen").height - 300)
 
   const birdLeft = screenWidth / 2
   const [birdBottom, setBirdBottom] = useState(screenHeight / 2)

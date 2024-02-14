@@ -44,7 +44,6 @@ export default function GameOverScreen({ setScreen, gameScore, highScoreData }) 
 
         if (highScoreData !== null && highScoreData !== undefined && highScoreData.length !== 0) {
             if (!hasDataBeenSent && isConnected) {
-                console.log(highScoreData)
                 if (highScoreData[4].score < finalScore) {
                     showAlertWithInput()
                 }
@@ -73,7 +72,6 @@ export default function GameOverScreen({ setScreen, gameScore, highScoreData }) 
                     }
 
                     const result = await response.json();
-                    console.log(result);
                 } catch (error) {
                     console.error('An error occurred:', error.message);
                     // Handle error accordingly

@@ -12,6 +12,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+    overflow: 'hidden',
   },
   fullScreen: {
     flex: 1,
@@ -63,7 +64,7 @@ const styles = StyleSheet.create({
   listContainer: {
     height: 350,
     margin: 0,
-    padding: 0
+    padding: 0,
   },
   marginVertical: {
     marginVertical: 50
