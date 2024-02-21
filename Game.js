@@ -117,6 +117,12 @@ export default function Game({ setScreen, setGameScore, setHighScores }) {
     fetchData();
   }, [])
 
+  useEffect(() => {
+    setTimeout(() => {
+      setScore(1);
+    }, 2500);
+  }, [])
+
   //check for collisions
   useEffect(() => {
     if (
