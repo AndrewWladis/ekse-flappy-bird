@@ -7,7 +7,7 @@ import { useFonts } from 'expo-font';
 
 export default function GameOverScreen({ setScreen, gameScore, highScoreData }) {
     const [isConnected, setIsConnected] = useState(true);
-    const [finalScore, setFinalScore] = useState(gameScore + 1)
+    const [finalScore, setFinalScore] = useState(gameScore)
     const [isHighScore, setIsHighScore] = useState(false)
     const [yourName, setYourName] = useState(null);
     const [hasDataBeenSent, setHasDataBeenSent] = useState(false);
